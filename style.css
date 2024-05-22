@@ -2,8 +2,22 @@
 
 :root{
     --red: #ff3838;
+    --gold-crayola: hsl(38, 61%, 73%);
+    --eerie-black-1: hsla(210, 4%, 9%, 1);
+    --white: hsla(0, 0%, 100%, 1);
+
+    --fontSize-label-2: 1.2rem;
+    --weight-regular: 400;
+    --weight-bold: 700;
+    --letterSpacing-5: 3px;
+    --lineHeight-5: 1.85em;
+
+    --fontFamily-dm_sans: 'DM Sans', sans-serif;
+    --fontSize-body-4: 1.6rem;
+
+
 }
-*{
+*, *::before, *::after{
     font-family: 'Nunito', sans-serif;
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -26,7 +40,8 @@ html{
 }
 
 body{
-    background: #f7f7f7;
+        background: #f7f7f7;
+
 }
 
 section{
@@ -45,27 +60,38 @@ section{
 }
 .btn{
     display: inline-block;
-    padding: .8rem 3rem;
-    border: .2rem solid var(--red);
+    padding: 12px 45px;
+    border: 2px solid var(--gold-crayola);
     color: var(--red);
     cursor: pointer;
     font-size: 1.7rem;
     border-radius: .5;
     position: relative;
     overflow: hidden;
-    z-index: 0;
+    z-index: 1;
     margin-top: 1rem;
+    max-width: max-content;
+    letter-spacing: var(--letterSpacing-5);
+    text-transform: uppercase;
+    font-weight: var(--weight-bold);
+    font-size: var(--fontSize-label-2);
+    color: var(--gold-crayola);
 }
 .btn::before{
-    content: '';
+    content: "";
     position: absolute;
-    top: 0; right: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--red);
-    transition: .3s linear;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background-color: hsl(38, 61%, 73%);
+    transition: 500ms ease;
     z-index: -1;
 }
+.btn .text { transition: var(--transition-1); }
+
 .btn:hover::before{
     width: 100%;
     left: 0;
